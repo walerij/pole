@@ -12,4 +12,31 @@ class game:
 
     def set_answer(self):
         for i in self.quest:
-            self.answer+="*"          
+            self.answer+="*" 
+
+
+    def check_answer(self, letter):
+        find = self.quest.find(letter) #ищем букву в задании quest
+        if find==-1: #если не найдена 
+            return "Нет такой буквы в этом слове" #возвращается сообщение о том, что такой буквы нет
+            #изменений в answer не происходит
+        else:
+            #очищается и снова заполняется answer
+            # в принципе можно воспользоваться строковыми функциями
+            # но мы переберем все варианты этой буквы
+            # и соберем заново слово-ответ 
+
+            list_answer = list(self.answer) # делим слово answer на список букв
+            self.answer ="" #и очищаем его
+            count=0
+            for i in self.quest:
+                if i==letter: #если буква на этом месте
+                    self.answer+=letter
+                else:
+                    self.answer+=list_answer[count]  
+
+                count=count+1     
+
+
+            print(self.answer)
+            return "Есть такая буква в этом слове"#возвращается сообщение о том, что такая буква есть
