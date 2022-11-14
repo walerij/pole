@@ -15,4 +15,8 @@ for i in range(0,slovo):
     answer = game.answer
     print(answer)
 
-print("Загаданное слово:",quest)    
+word=input("Назовите слово целиком:")
+if (word==quest):
+    print("Верно! Загаданное слово: ",quest,". Вы выиграли АВТОМОБИЛЬ!")
+else:
+    print("Увы нет. Загаданное слово:",quest,"Вы проиграли. Не расстраивайтесь!")    
