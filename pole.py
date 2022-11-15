@@ -4,7 +4,7 @@ print("Здравствуйте, друзья! В эфире программа 
 game=game()
 quest = game.quest
 slovo = len(quest)+3 #создание цикла - длина слова + 3 попытки
-
+score=0 #счет
 answer = game.answer
 print("Загаданное слово ",answer)
 
