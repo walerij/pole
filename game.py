@@ -6,6 +6,7 @@ class game:
             self.workslist=f.read().splitlines()         #заполняем его из файла words          
         self.quest=self.workslist[random.randint(0,len(self.workslist))]#вопрос - выбор случайный
         self.answer = ""
+        self.baraban=[50,150,"0",750,"Б",100,"П",200]
         self.set_answer()
         #self.set_answer()
         self.win=""  

@@ -1,4 +1,5 @@
 from game import game
+import random
 print("Здравствуйте, друзья! В эфире программа 'Поле чудес'")
 
 game=game()
@@ -9,6 +10,8 @@ answer = game.answer
 print("Загаданное слово ",answer)
 
 for i in range(0,slovo):
+    x=random.randint(0,len(game.baraban)-1)
+    print("У вас на барабане выпало: ", game.baraban[x])
     a=input ("Введите Вашу букву:")
 
     print(game.check_answer(a))
@@ -17,6 +20,6 @@ for i in range(0,slovo):
 
 word=input("Назовите слово целиком:")
 if (word==quest):
-    print("Верно! Загаданное слово: ",quest,". Вы выиграли АВТОМОБИЛЬ!")
+    print("Верно! Загаданное слово: ",quest,". Вы набрали ",score," очков.")
 else:
     print("Увы нет. Загаданное слово:",quest,"Вы проиграли. Не расстраивайтесь!")    
