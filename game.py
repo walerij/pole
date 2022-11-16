@@ -8,7 +8,7 @@ class game:
         self.answer = ""
         self.baraban=[50,150,"0",750,"Б",100,"П",200]
         self.set_answer()
-        #self.set_answer()
+        
         self.win=""  
 
     def set_answer(self):
@@ -19,7 +19,7 @@ class game:
     def check_answer(self, letter):
         find = self.quest.find(letter) #ищем букву в задании quest
         if find==-1: #если не найдена 
-            return "Нет такой буквы в этом слове" #возвращается сообщение о том, что такой буквы нет
+            return 0 #возвращается 0 такой буквы нет
             #изменений в answer не происходит
         else:
             #очищается и снова заполняется answer
@@ -40,4 +40,4 @@ class game:
 
 
             print(self.answer)
-            return "Есть такая буква в этом слове"#возвращается сообщение о том, что такая буква есть
+            return 1 #возвращается 1 - такая буква есть
