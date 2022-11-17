@@ -4,32 +4,34 @@ print("Здравствуйте, друзья! В эфире программа 
 
 game=game()
 quest = game.quest
-slovo = len(quest)+3 #создание цикла - длина слова + 3 попытки
-score=0 #счет
+#slovo = len(quest)+3 #создание цикла - длина слова + 3 попытки
+
 answer = game.answer
 print("Загаданное слово ",answer)
 
-for i in range(0,slovo):
+for i in range(0,game.steps):
     x=random.randint(0,len(game.baraban)-1)
     print("У вас на барабане выпало: ", game.baraban[x])
     a=input ("Введите Вашу букву:")
 
+    if a=="слово": #если мы хотим назвать слово
+        break      #прерываем цикл
     #print(game.check_answer(a))
-    if game.check_answer(a)==0:
+    elif game.check_answer(a)==0:
         print ("Такой буквы нет в этом слове")
 
     else:
         if type(game.baraban[x]) == int:
-            score+=game.baraban[x]
+            game.score+=game.baraban[x]
         print ("Такая буква есть в этом слове") 
 
     answer = game.answer
     print(answer)
 
 word=input("Назовите слово целиком:")
-print(" Ваш счет за игру : ",score)
+print(" Ваш счет за игру : ",game.score)
 if (word==quest):
-    print("Верно! Загаданное слово: ",quest,". Вы набрали ",score," очков.")
+    print("Верно! Загаданное слово: ",quest,". Вы набрали ",game.score," очков.")
 else:
     print("Увы нет. Загаданное слово:",quest,"Вы проиграли. Не расстраивайтесь!")    
 

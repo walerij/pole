@@ -5,11 +5,13 @@ class game:
         with open("words.txt",'r') as f:
             self.workslist=f.read().splitlines()         #заполняем его из файла words          
         self.quest=self.workslist[random.randint(0,len(self.workslist))]#вопрос - выбор случайный
-        self.answer = ""
-        self.baraban=[50,150,"0",750,"Б",100,"П",200]
-        self.set_answer()
+        self.answer = ""    #ответ игрока - пока пусто     
+        self.baraban=[50,150,"0",750,"Б",100,"П",200] #барабан
+        self.set_answer() #заполнение
+        self.steps = len(self.quest)+3 #шаги игры - ходы пользователя - количество букв в слове +3
+        self.score=0 #счет
         
-        self.win=""  
+        self.win=""  #победа или поражение
 
     def set_answer(self):
         for i in self.quest:
