@@ -19,6 +19,7 @@ class game:
 
 
     def check_answer(self, letter):
+        self.steps=self.steps-1 #количество шагов уменьшается на 1 
         find = self.quest.find(letter) #ищем букву в задании quest
         if find==-1: #если не найдена 
             return 0 #возвращается 0 такой буквы нет
@@ -45,4 +46,6 @@ class game:
             find_sym=self.answer.find("*") #поиск звездочки в слове
             if find_sym==-1: #если звездочка не найдена
                 self.win="gamer"
+            if self.steps<=0:
+                self.win="comp"    
             return 1 #возвращается 1 - такая буква есть

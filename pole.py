@@ -12,6 +12,7 @@ print("Загаданное слово ",answer)
 while game.win=="":
     x=random.randint(0,len(game.baraban)-1)
     print("У вас на барабане выпало: ", game.baraban[x])
+    print("Количество оставшихся шагов:",game.steps)
     a=input ("Введите Вашу букву:")
 
     if a=="слово": #если мы хотим назвать слово
