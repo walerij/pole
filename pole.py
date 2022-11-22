@@ -9,7 +9,7 @@ quest = game.quest
 answer = game.answer
 print("Загаданное слово ",answer)
 
-for i in range(0,game.steps):
+while game.win=="":
     x=random.randint(0,len(game.baraban)-1)
     print("У вас на барабане выпало: ", game.baraban[x])
     a=input ("Введите Вашу букву:")

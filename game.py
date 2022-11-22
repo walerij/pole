@@ -41,5 +41,8 @@ class game:
                 count=count+1     
 
 
-            print(self.answer)
+            #print(self.answer)
+            find_sym=self.answer.find("*") #поиск звездочки в слове
+            if find_sym==-1: #если звездочка не найдена
+                self.win="gamer"
             return 1 #возвращается 1 - такая буква есть
