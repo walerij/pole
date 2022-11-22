@@ -6,11 +6,11 @@ class game:
             self.workslist=f.read().splitlines()         #заполняем его из файла words          
         self.quest=self.workslist[random.randint(0,len(self.workslist))]#вопрос - выбор случайный
         self.answer = ""    #ответ игрока - пока пусто     
-        self.baraban=[50,150,"0",750,"Б",100,"П",200] #барабан
+        self.baraban=[50,150,"0",750,"Б",100,"x2",200] #барабан
         self.set_answer() #заполнение
         self.steps = len(self.quest)+3 #шаги игры - ходы пользователя - количество букв в слове +3
         self.score=0 #счет
-        
+        self.baraban_result=""
         self.win=""  #победа или поражение
 
     def set_answer(self): #первоначальное задание ответа
@@ -20,6 +20,11 @@ class game:
 
     def check_answer(self, letter): #проверка ответа
         self.steps=self.steps-1 #количество шагов уменьшается на 1 
+        find_sym=self.answer.find("*") #поиск звездочки в слове
+        if find_sym==-1: #если звездочка не найдена
+            self.win="gamer"
+        if self.steps<=0: #если количество шагов меньше 0
+            self.win="comp" 
         find = self.quest.find(letter) #ищем букву в задании quest
         if find==-1: #если не найдена 
             return 0 #возвращается 0 такой буквы нет
@@ -43,11 +48,7 @@ class game:
 
 
             #print(self.answer)
-            find_sym=self.answer.find("*") #поиск звездочки в слове
-            if find_sym==-1: #если звездочка не найдена
-                self.win="gamer"
-            if self.steps<=0:
-                self.win="comp"    
+   
             return 1 #возвращается 1 - такая буква есть
 
     def check_word(self,word): #проверка слова
@@ -55,5 +56,15 @@ class game:
             self.win="gamer" # победил игрок
         else:                # иначе
             self.win="comp"  # победил комп
+
+
+    def check_baraban(self): #проверка показаний барабана
+        if self.baraban_result=="Б": #если выпал Банкрот
+            self.score=0
+        elif self.baraban_result=="0": #переход хода
+            self.steps=self.steps-1 #количество шагов уменьшается на 1
+        elif self.baraban_result=="x2": #
+             self.score=self.score*2
+
 
             
