@@ -13,12 +13,12 @@ class game:
         
         self.win=""  #победа или поражение
 
-    def set_answer(self):
-        for i in self.quest:
-            self.answer+="*" 
+    def set_answer(self): #первоначальное задание ответа
+        for i in self.quest: #
+            self.answer+="*" #ответ заполняем значками *
 
 
-    def check_answer(self, letter):
+    def check_answer(self, letter): #проверка ответа
         self.steps=self.steps-1 #количество шагов уменьшается на 1 
         find = self.quest.find(letter) #ищем букву в задании quest
         if find==-1: #если не найдена 
@@ -49,3 +49,11 @@ class game:
             if self.steps<=0:
                 self.win="comp"    
             return 1 #возвращается 1 - такая буква есть
+
+    def check_word(self,word): #проверка слова
+        if word==self.quest: #если слово равно слову-загадке
+            self.win="gamer" # победил игрок
+        else:                # иначе
+            self.win="comp"  # победил комп
+
+            
