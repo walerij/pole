@@ -30,16 +30,19 @@ while game.win=="":
 
     answer = game.answer
     print(answer)
-if game.win=="":
-    word=input("Назовите слово целиком:")
-    print(" Ваш счет за игру : ",game.score)
-    if (word==quest):
-        print("Верно! Загаданное слово: ",quest,". Вы набрали ",game.score," очков.")
-    else:
-        print("Увы нет. Загаданное слово:",quest,"Вы проиграли. Не расстраивайтесь!")
+def get_win(quest):
+    if game.win=="":
+        word=input("Назовите слово целиком:")
+        print(" Ваш счет за игру : ",game.score)
+        if (word==quest):
+            print("Верно! Загаданное слово: ",quest,". Вы набрали ",game.score," очков.")
+        else:
+            print("Увы нет. Загаданное слово:",quest,"Вы проиграли. Не расстраивайтесь!")
 
-elif game.win == "gamer": #если победил игрок
-    print("Верно! Загаданное слово: ",quest,". Вы набрали ",game.score," очков. Поздравляю с победой")
+    elif game.win == "gamer": #если победил игрок
+        print("Верно! Загаданное слово: ",quest,". Вы набрали ",game.score," очков. Поздравляю с победой")
 
-elif game.win == "comp":
-    print("Вы не угадали слово. Это ",quest,". Не расстраивайтесь")
+    elif game.win == "comp":
+        print("Вы не угадали слово. Это ",quest,". Не расстраивайтесь")
+
+get_win(quest)
