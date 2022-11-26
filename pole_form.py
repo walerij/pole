@@ -23,7 +23,7 @@ answer= game.answer
 
 #прогружаем слово и играем
 la_word= Label(fr_word, bg="green", fg="white",font="Arial,42", width=100, height=2,text=answer)
-la_word.pack(side=LEFT)
+la_word.pack()
 def click_button():
     la_word["text"]=btn.cget('text')
 for r in range(3):
@@ -43,6 +43,7 @@ def pole_check():
         messagebox.showinfo(title="Информация", message="Буква "+letter+"! Есть такая буква в этом слове!")    
     answer = game.answer        
     la_word["text"]=answer
+    pole["text"]=""
 
 pole_button=Button(fr_pole,text="Назвать букву",command=pole_check)
 pole_button.pack()
